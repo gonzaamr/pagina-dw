@@ -20,10 +20,10 @@ html, body{
 }
 
 .izquierda{
+    height: 100%;
     padding: 20px;
     display: flex;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .datos{
@@ -67,7 +67,7 @@ html, body{
     background: linear-gradient(rgba(255,255,255,0) 0%, #333);
 }
 
-h1 {
+.foto h1 {
     font-size: 50px;
     color: black;
     position: absolute;
@@ -81,7 +81,7 @@ h1 {
 a{
     text-decoration: none; /* Elimina el subrayado */
     color: inherit;       /* Hereda el color del texto del padre */
-    cursor: default;
+    cursor: pointer;
 }
 
 .opciones {
@@ -137,9 +137,7 @@ a{
 }
 
 .derecha{
-
-    justify-content: center;
-    gap:20px;
+    height: 100%;
     padding: 20px;
 }
 
@@ -196,14 +194,118 @@ a{
 }
 
 .abajo{
+    width: 100%;
+    height: 63.55%;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
     box-shadow: 0 0 100px rgba(0, 0, 0, .2);
-    width: 100%;
-    height: 68.5%;
     border-radius: 10px;
-    margin-top: 20px;
+    margin-top: 5%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    overflow: hidden;
+}
+
+.amigos{
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding:30px;
+    align-items: center;
+    overflow: hidden;
+} 
+
+.card {
+    width: 350px;
+    height: 150px;
+    margin:0 auto;
+    background: rgba(0, 0, 0, 0.527);
+    border-radius: 10px;
+    display: grid;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    grid-template-columns: 1fr 2fr;
+}
+
+.if{
+    padding: 25px 5px 25px 25px;
+}
+
+.if img{
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.dd{
+    padding: 35px 20px 30px 5px ;
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.dd h1,.dd h2{
+    margin: 0 auto;
+}
+
+.elo{
+    display: grid;
+    grid-template-rows: 1fr 3fr 1fr;
+    align-items: center;
+    justify-content: center;
+    border-right: solid;
+    border-left: solid;
+}
+
+.puntos{
+    margin: 20px auto;
+}
+
+.foto-elo{
+    width:200px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.rango{
+    margin: 20px auto;
+}
+
+
+.historial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+th {
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 550;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para las celdas de datos */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+    color: #ffffff;
+    font-size: medium;
+}
+
+/* Efecto hover para las filas */
+tr:hover {
+    background-color: #00000028;
+}
+
+.table-container{
+    margin-left: 3%;
+    overflow: auto;
 }
 
 input[type="radio"] {
@@ -228,6 +330,126 @@ input[type="radio"] {
     display: flex;
 }
 
+@media screen and (max-width: 1024px) {
+    .contenedor {
+        grid-template-columns: 1fr; /* Columnas a una sola */
+        grid-template-rows: auto auto;
+    }
+
+    .izquierda {
+        padding: 10px;
+        height: auto;
+    }
+
+    .derecha {
+        padding: 10px;
+        height: auto;
+    }
+
+    .arriba {
+        height: auto;
+    }
+
+    .abajo {
+        height: auto;
+        grid-template-columns: 1fr 1fr;
+        margin-top: 20px;
+    }
+
+    .card {
+        width: 90%;
+        height: auto;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+    }
+
+    .if img {
+        width: 80px;
+        height: 80px;
+    }
+
+    .dd {
+        padding: 20px;
+        gap: 10px;
+    }
+
+    .fila-tercera {
+        flex-direction: column;
+    }
+
+    .mail, .contraseña {
+        width: 100%;
+    }
+}
+
+/* Celulares y pantallas pequeñas (menos de 768px) */
+@media screen and (max-width: 768px) {
+    .opciones ul {
+        gap: 15px;
+    }
+
+    .opciones li {
+        font-size: 20px;
+    }
+
+    .foto h1 {
+        font-size: 30px;
+    }
+
+    .caja {
+        font-size: 24px;
+    }
+
+    .abajo {
+        grid-template-columns: 1fr;
+    }
+
+    .foto-elo {
+        width: 100%;
+        height: auto;
+    }
+
+    .table-container {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .card {
+        width: 100%;
+    }
+
+    .dd h1, .dd h2 {
+        font-size: 18px;
+    }
+
+    .elo {
+        grid-template-rows: auto;
+        border: none;
+    }
+}
+
+/* Pequeños ajustes para pantallas muy pequeñas (< 480px) */
+@media screen and (max-width: 480px) {
+    .caja {
+        font-size: 20px;
+    }
+
+    .dd {
+        padding: 15px;
+    }
+
+    .arriba {
+        padding: 20px;
+    }
+
+    .foto h1 {
+        font-size: 24px;
+    }
+
+    .opciones li {
+        font-size: 18px;
+    }
+}
 
 
 
