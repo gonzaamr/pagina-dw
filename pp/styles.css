@@ -1,0 +1,369 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+input{
+    display: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("/images/php6wV0bn.png") no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.titulo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 2rem;
+    color: white;
+}
+
+.contenedor{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Espacio entre botones */
+    justify-content: center;
+    align-items: center;
+    width: 815px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+    color:#fff;
+    border-radius: 10px;
+    padding: 30px 40px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.boton{
+    display: inline-block;
+    padding: 10px;
+    background: transparent;
+    margin: 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    width: 200px;
+    height: 200px;
+    border-style: solid; 
+}
+
+.boton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+a{
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit;       /* Hereda el color del texto del padre */
+    cursor: default;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.box .item {
+    width: 80px; /* Tamaño fijo para todas las imágenes */
+    height: 80px; /* Evita que tengan alturas diferentes */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+    margin-bottom: 10px;
+    margin-top:10px; /* Espaciado uniforme */
+}
+
+.box h2 {
+    text-align: center;
+    margin-top: auto; /* Empuja el texto hacia abajo */
+}
+
+.detalle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Alinea todo verticalmente */
+    align-items: center; /* Centra horizontalmente */
+    width: 500px;
+    height: auto;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+    color: #fff;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.detalle h1 {
+    position: relative;
+    top: 0;
+    margin-bottom: 20px; /* Espaciado entre el título y la imagen */
+    font-size: 2rem;
+    text-align: center;
+}
+
+.detalle .itemdetalle {
+    width: 200px; /* Ajusta el tamaño de la imagen */
+    object-fit: contain; /* Ajusta la imagen sin deformarla */
+    display: block; /* Elimina espacios extra si es un inline element */
+    margin: 0 auto;
+    margin-bottom: 30px;
+}
+
+.detalle .volver {
+    width: 90px;
+    height: 50px;
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    color: white;
+    border-style: none;
+}
+
+.iniciar{
+    width: 75%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 30px;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+th {
+    color: white;
+    padding: 15px;
+    text-align: left;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Estilos para las celdas de datos */
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #dddddd;
+    color: #ffffff;
+    font-size: medium;
+}
+
+/* Efecto hover para las filas */
+tr:hover {
+    background-color: #00000028;
+}
+
+.table-container{
+    margin-left: 3%;
+    overflow: auto;
+    margin-bottom: 20px;
+}
+
+.jugar{
+    width:100%;
+    height: 30px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+.jugar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.historial{
+    width: 600px;
+    height: auto;
+}
+
+.estadisticas{
+    width: 610px; 
+    height: auto;
+    
+}
+.contendor-estadisticas{
+    grid-template-columns: repeat(3, 1fr);
+} 
+
+.est{
+    display: inline-block;
+    padding: 10px;
+    background: transparent;
+    margin: 20px;
+
+    text-decoration: none;
+    color: white;
+    width: 150px;
+    height: 150px;
+    border-style: solid; 
+}
+
+.contenedor-estadisticas {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas */
+    gap: 15px; /* Espacio entre celdas */
+    margin-top: 20px;
+}
+
+.est {
+    background: #f0f0f080;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra horizontalmente */
+    justify-content: center; /* Centra verticalmente */
+    min-height: 120px; /* Altura mínima para uniformidad */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.est h3 {
+    margin: 0 0 10px 0; /* Espacio debajo del título */
+    font-size: 1rem;
+    color: #555;
+}
+
+.est big {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Contenedor principal del carrusel */
+.partidas {
+    width: 100%;
+    overflow-x: auto; /* Permite el desplazamiento horizontal */
+    padding: 10px 0;
+    -webkit-overflow-scrolling: touch; /* Mejor desplazamiento en móviles */
+}
+
+/* Contenedor de las tarjetas (carrousel) */
+.carrousel {
+    display: flex;
+    gap: 15px; /* Espacio entre tarjetas */
+    padding: 0 20px;
+    scroll-snap-type: x mandatory; /* Frena el desplazamiento en cada tarjeta */
+    margin-bottom: 20px;
+}
+
+/* Estilo de cada tarjeta */
+.card {
+    min-width: 200px;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.527);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;  /* Apila los elementos verticalmente */
+    justify-content: space-between;  /* Separa el h1 y el botón */
+    align-items: center;  /* Centra horizontalmente */
+    padding: 15px;  /* Espacio interno */
+    scroll-snap-align: start;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card h1 {
+    margin: 20px;
+}
+
+.card button {
+    width:80%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+    margin-top: 30px;
+    display: block;
+    margin: 0 auto;
+}
+
+.card button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Personalización para Chrome, Edge y Safari */
+.partidas::-webkit-scrollbar {
+    height: 6px; /* Altura de la barra (horizontal) */
+}
+
+.partidas::-webkit-scrollbar-track {
+    background: transparent; /* Fondo transparente */
+    margin: 0 20px; /* Margen a los lados (opcional) */
+}
+
+.partidas::-webkit-scrollbar-thumb {
+    background-color: #888; /* Color de la barra */
+    border-radius: 3px; /* Bordes redondeados */
+}
+
+.partidas::-webkit-scrollbar-thumb:hover {
+    background-color: #555; /* Color al pasar el mouse */
+}
+
+.categorias, .detalle {
+    pointer-events: none;
+    visibility: hidden;
+}
+
+#inicio:checked ~ .categorias {
+    display: inline-block;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+}
+#nueva-partida:checked ~ .partida,
+#en-curso:checked ~ .curso,
+#historial:checked ~ .historial,
+#estadisticas:checked ~ .estadisticas,
+#partidas-publicas:checked ~ .publica{
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;   
+} 
+

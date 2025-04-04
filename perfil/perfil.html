@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Perfil</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <div class="contenedor">
+            <div class="izquierda">
+                <div class="datos">
+                    <div class="foto">
+                        <input type="file" id="fileInput" accept="image/*">
+                        <h1>Lokotron</h1>
+                    </div>
+                    <div class="opciones">
+                        <ul>
+                            <li><a href="/pp/pp.html">Jugar</a></li>
+                            <li>        
+                                <label for="edicion" style="cursor: pointer;">Configuración</label>
+                            </li>
+                                
+                            <li>opcion 3</li>
+                        </ul>
+                    </div>
+                    <div class="cerrar">
+                        <a href="/login/login.html"><p>cerrar sesion</p></a>
+                    </div>
+                </div>
+            </div>
+            <div class="derecha">         
+                <form action="#">
+                    <input type="radio" name="vista" id="visualizacion" checked>
+                    <input type="radio" name="vista" id="edicion">
+                    <div class="arriba modo-visualizacion">
+                        <div class="caja nickname">El lokotron del ajedrez 99</div> 
+                        <div class="caja nombre">Lokotron Jose Peréz Rammirez</div> 
+                        <div class="fila-tercera"> 
+                            <div class="caja mail">lokotron@gmail.com</div>
+                            <div class="caja contraseña">*********</div>
+                        </div>
+                    </div>
+                    <div class="arriba modo-edicion">
+                        <input type="text" class="caja nickname" placeholder="El lokotron del ajedrez 99">
+                        <input type="text" class="caja nombre" placeholder="Lokotron Jose Peréz Rammirez">
+                        <div class="fila-tercera">
+                            <input type="email" class="caja mail" placeholder="lokotron@gmail.com">
+                            <input type="password" class="caja contraseña" placeholder="*********">
+                        </div>
+                    </div>
+                    <button type="submit" hidden formaction="#visualizacion"></button>
+                    <button type="reset" hidden></button>
+                </form>
+                <div class="abajo">
+
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
