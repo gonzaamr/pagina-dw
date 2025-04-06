@@ -34,7 +34,7 @@ a{
 }
 
 .contenedor h1{
-    font-size: 36x;
+    font-size: 36px;
     text-align: center;
 }
 
@@ -131,7 +131,5 @@ a{
 .link-registro p a:hover{
     text-decoration: underline;
 }
-
-  
 
   
