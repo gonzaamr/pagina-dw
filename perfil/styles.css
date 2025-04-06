@@ -47,7 +47,7 @@ html, body{
 .foto {
     width: 100%;
     height: 35%;
-    background: url('/images/blank-profile-picture-973460_1280.webp') center/cover no-repeat;
+    background: url('/images/foto-perfil.webp') center/cover no-repeat;
     border-radius: 10px 10px 0 0;
     position: relative;
     display: flex;

@@ -91,8 +91,8 @@ a{
     text-decoration: underline;
 }
 
-.contenedor .btn{
-    width: 100%;
+.contenedor .btn {
+    width: 100%; /* Cambiado de 50px a 100% para que ocupe todo el ancho */
     height: 45px;
     background: #fff;
     border: none;
@@ -103,6 +103,17 @@ a{
     font-size: 16px;
     color: #333;
     font-weight: 600;
+    display: flex; /* Añadido */
+    justify-content: center; /* Añadido */
+    align-items: center; /* Añadido */
+    text-decoration: none; /* Añadido */
+    transition: all 0.3s ease; /* Añadido para efecto hover suave */
+}
+
+.contenedor .btn:hover {
+    background: #f0f0f0; /* Efecto hover */
+    transform: translateY(-2px); /* Efecto hover */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Efecto hover */
 }
 
 .contenedor .link-registro{

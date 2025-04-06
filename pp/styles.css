@@ -46,7 +46,7 @@ body{
     max-width: 815px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(20px);  
     box-shadow: 0 0 100px rgba(0, 0, 0, .2);
     color:#fff;
     border-radius: 10px;
@@ -87,14 +87,21 @@ a{
     cursor: pointer;
 }
 
-.box {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.box-container {
+    display: block;
     height: 100%;
+    width: 100%;
 }
 
+.box {
+    display: flex;          /* Ya lo tienes */
+    flex-direction: column; /* Ya lo tienes */
+    justify-content: center; /* Ya lo tienes */
+    align-items: center;    /* Ya lo tienes */
+    height: 100%;          /* Ya lo tienes */
+    width: 100%;           /* Añade esto */
+    display: inline-flex;   /* Alternativa a flex */
+}   
 .box .item {
     width: 80px; /* Tamaño fijo para todas las imágenes */
     height: 80px; /* Evita que tengan alturas diferentes */
@@ -103,11 +110,12 @@ a{
     margin-top:10px; /* Espaciado uniforme */
 }
 
-.box h2 {
+.box span {
     text-align: center;
     margin-top: auto; /* Empuja el texto hacia abajo */
+    font-size: 25px;
+    font-weight: bold;
 }
-
 .detalle {
     display: flex;
     flex-direction: column;
@@ -151,8 +159,8 @@ a{
     border-style: none;
 }
 
-.iniciar{
-    width: 75%;
+.iniciar {
+    width: 90%; /* Cambiado de 50px a 100% para que ocupe todo el ancho */
     height: 45px;
     background: #fff;
     border: none;
@@ -163,10 +171,19 @@ a{
     font-size: 16px;
     color: #333;
     font-weight: 600;
-    margin-top: 30px;
-    display: block;
+    display: flex; /* Añadido */
+    justify-content: center; /* Añadido */
+    align-items: center; /* Añadido */
+    text-decoration: none; /* Añadido */
+    transition: all 0.3s ease; /* Añadido para efecto hover suave */
     margin: 0 auto;
     margin-bottom: 20px;
+}
+
+.iniciar:hover {
+    background: #f0f0f0; /* Efecto hover */
+    transform: translateY(-2px); /* Efecto hover */
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2); /* Efecto hover */
 }
 
 th {
@@ -298,8 +315,10 @@ tr:hover {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.card h1 {
+.card h2 {
     margin: 20px;
+    font-size: 40px;
+    font-weight: bold;
 }
 
 .card button {
@@ -326,21 +345,25 @@ tr:hover {
 
 
 /* Personalización para Chrome, Edge y Safari */
-.partidas::-webkit-scrollbar {
+.partidas::-webkit-scrollbar, 
+.table-container::-webkit-scrollbar {
     height: 6px; /* Altura de la barra (horizontal) */
 }
 
-.partidas::-webkit-scrollbar-track {
+.partidas::-webkit-scrollbar-track,
+.table-container::-webkit-scrollbar-track{
     background: transparent; /* Fondo transparente */
     margin: 0 20px; /* Margen a los lados (opcional) */
 }
 
-.partidas::-webkit-scrollbar-thumb {
+.partidas::-webkit-scrollbar-thumb,
+.table-container::-webkit-scrollbar-thumb {
     background-color: #888; /* Color de la barra */
     border-radius: 3px; /* Bordes redondeados */
 }
 
-.partidas::-webkit-scrollbar-thumb:hover {
+.partidas::-webkit-scrollbar-thumb:hover,
+.table-container::-webkit-scrollbar-thumb:hover {
     background-color: #555; /* Color al pasar el mouse */
 }
 
