@@ -7,6 +7,7 @@
 
 body {
     background: url("/images/php6wV0bn.png");
+    background-size: 100% 100%;
     display: flex; /* Añadido para centrado flexible */
     justify-content: center; /* Centrado horizontal */
     align-items: center; /* Centrado vertical */

@@ -13,7 +13,7 @@ body{
     gap: 100px;
     min-height: 100vh;
     background: url("/images/php6wV0bn.png");
-    background-size: cover;
+    background-size: 100% 100%;
     background-position: center;
 }
 

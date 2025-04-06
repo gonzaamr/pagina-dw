@@ -7,6 +7,7 @@
 
 body {
     background: url("/images/php6wV0bn.png");
+    background-size: 100% 100%;
     min-height: 100vh;
     display: flex;
     justify-content: center;
