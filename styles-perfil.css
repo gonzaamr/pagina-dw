@@ -1,0 +1,735 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  color: white;
+}
+
+html, body{
+  width: 100%;
+  height: 100%;
+  background: url("/php6wv0bn.png");
+  background-size: 100% 100%;
+}
+
+
+.contenedor{
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 8fr;
+}
+
+.izquierda{
+  height: 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;    
+}
+
+.datos{
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+  width: 100%;
+  height: 100%;   
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  position: relative; /* Añadido para contexto de posicionamiento */
+}
+
+.foto {
+  width: 100%;
+  height: 35%;
+  background: url('/images/foto-perfil.webp') center/cover no-repeat;
+  border-radius: 10px 10px 0 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.foto input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.foto::before{
+  content: "";
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(255,255,255,0) 0%, #333);
+}
+
+.foto h1 {
+  font-size: 50px;
+  position: absolute;
+  bottom: 10px; /* Ajusta la distancia desde la parte inferior */
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  width: 100%;
+}
+
+a{
+  text-decoration: none; /* Elimina el subrayado */
+  color: inherit;       /* Hereda el color del texto del padre */
+  cursor: pointer;
+}
+
+.opciones {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+}
+
+.opciones ul {
+  list-style: none;
+  text-align: center;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.opciones li {
+  font-size: 30px;
+
+  font-weight: bold;
+  padding: 10px 0;
+  position: relative;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.opciones li:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #f0f0f0;
+  cursor: pointer;
+}
+
+.cerrar {
+  text-align: center;
+  font-size: 16px;
+  padding-bottom: 10px;
+}
+.cerrar p {
+  font-size: 20px;
+  transition: background-color 0.3s, color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cerrar p:hover {
+  background-color: rgba(255, 0, 0, 0.2);
+  color: red;
+  cursor: pointer;
+}
+
+.derecha{
+  height: 100%;
+  padding: 20px;
+}
+
+.arriba{
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+  width: 100%;
+  height: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column; 
+  gap: 20px; 
+  justify-content: center;
+  padding: 30px;
+}
+
+
+.caja {
+  height: 50px;
+  border-radius:10px ;
+  width: 100%; 
+  box-sizing: border-box; 
+  font-size: 40px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  background: #55555593;
+}
+
+.caja::-webkit-scrollbar {
+  height: 6px; 
+}
+
+.caja::-webkit-scrollbar-track {
+  background: transparent; 
+  margin: 0 20px; 
+}
+
+
+.fila-tercera {
+  display: flex;
+  width: 100%;
+  gap: 20px; /* Espacio entre los elementos de la tercera fila */
+  justify-content: center;
+}
+
+.mail {
+  width: 60%; /* 60% menos el espacio del gap */
+}
+
+.contraseña {
+  width: 40%; /* 40% menos el espacio del gap */
+}
+
+.abajo{
+  width: 100%;
+  height: 63.55%;
+  background: transparent;
+  border: 2px solid rgba(255, 255, 255, .2);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 100px rgba(0, 0, 0, .2);
+  border-radius: 10px;
+  margin-top: 5%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  overflow: hidden;
+}
+
+.amigos{
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding:30px;
+  align-items: center;
+  overflow: hidden;
+} 
+
+.card {
+  width: 350px;
+  height: 150px;
+  margin:0 auto;
+  background: rgba(0, 0, 0, 0.527);
+  border-radius: 10px;
+  display: grid;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  grid-template-columns: 1fr 2fr;
+}
+
+.if{
+  padding: 25px 5px 25px 25px;
+}
+
+.if img{
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.dd{
+  padding: 35px 20px 30px 5px ;
+  display: flex;
+  flex-direction: column;
+  gap: 20px; 
+}
+
+.dd h1,.dd h2{
+  margin: 0 auto;
+}
+
+.elo{
+  display: grid;
+  grid-template-rows: 1fr 3fr 1fr;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid rgba(255,255,255,0.2);
+  border-left: 1px solid rgba(255,255,255,0.2);
+}
+
+.puntos{
+  margin: 20px auto;
+}
+
+.foto-elo{
+  width:200px;
+  height: 300px;
+  object-fit: contain;
+}
+
+.rango{
+  margin: 20px auto;
+}
+
+
+.historial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+th {
+  color: white;
+  padding: 15px;
+  text-align: left;
+  font-weight: 550;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Estilos para las celdas de datos */
+td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #dddddd;
+  color: #ffffff;
+  font-size: medium;
+}
+
+/* Efecto hover para las filas */
+tr:hover {
+  background-color: #00000028;
+}
+
+.table-container{
+  margin-left: 3%;
+  overflow: auto;
+}
+
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+}
+
+.modo-edicion {
+  display: none; /* Oculta por defecto */
+}
+
+.modo-visualizacion {
+  display: flex; /* Se muestra por defecto */
+}
+
+/* Cuando se selecciona el radio de edición */
+#edicion:checked ~ .modo-visualizacion {
+  display: none;
+}
+
+#edicion:checked ~ .modo-edicion {
+  display: flex;
+}
+
+@media (max-width: 1700px) {
+  .contenedor {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+  }
+  
+  .izquierda, .derecha {
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+
+  .cerrar {
+      padding: 10px 0;
+    }
+    
+    .cerrar p {
+      font-size: 16px;
+      padding: 6px 12px;
+    }
+  
+  /* Ajustes para el panel izquierdo */
+  .datos {
+      flex-direction: row; /* Cambia a disposición horizontal */
+      height: 200px;
+      padding-bottom: 0;
+  }
+  
+  .foto {
+      width: 200px;
+      height: 100%;
+      border-radius: 10px 0 0 10px;
+  }
+  
+  .foto h1 {
+      font-size: 30px;
+      bottom: 5px;
+  }
+  
+  .opciones {
+      justify-content: space-around;
+  }
+  
+  .opciones ul {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 30px;
+  }
+  
+  .opciones li {
+      font-size: 20px;
+      padding: 5px 15px;
+  }
+  
+  /* Ajustes para el panel derecho */
+  .arriba {
+      height: auto;
+      padding: 20px;
+  }
+  
+  .caja {
+      height: 40px;
+      font-size: 30px;
+  }
+  
+  .fila-tercera {
+      flex-direction: column;
+  }
+  
+  .mail, .contraseña {
+      width: 100%;
+  }
+  
+  /* Ajustes para la sección de abajo */
+  .abajo {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto auto auto;
+      gap: 20px;
+      padding: 20px;
+  }
+  
+  .amigos, .elo, .historial {
+      padding: 20px;
+  }
+  
+  .elo {
+      grid-template-rows: auto auto auto;
+      border-right: none;
+      border-left: none;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding: 20px 0;
+  }
+}
+/* Primera adaptación a partir de 510px */
+@media (max-width: 768px) {
+
+  .opciones ul {
+      display: block;
+      gap: 10px 30px;
+  }
+  .cerrar {
+      position: fixed;
+      bottom: 15px;
+      left: 65%;
+      transform: translateX(-50%);
+      width: auto;
+      max-width: 90%;
+      padding: 0;
+      background: transparent;
+      z-index: 1000;
+    }
+  
+    .cerrar p {
+      padding: 10px 25px;
+      font-size: 15px;
+      white-space: nowrap;
+  }
+
+  .abajo {
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    gap: 20px;
+    padding: 20px;
+  }
+
+  .amigos, .elo, .historial {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .foto-elo {
+    width: 150px;
+    height: 225px;
+  }
+}
+/* Ajustes para pantallas entre 510px y 650px */
+@media (max-width: 650px) {
+
+  .cerrar{
+      left: 62%;
+  }
+  .abajo {
+    padding: 15px;
+  }
+
+  .card {
+    grid-template-columns: 1fr;
+    height: auto;
+    text-align: center;
+  }
+
+  .if {
+    padding: 15px;
+  }
+
+  .dd {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .foto-elo {
+    width: 120px;
+    height: 180px;
+  }
+}
+/* Ajustes finos para pantallas menores a 510px */
+@media (max-width: 510px) {
+
+  .cerrar{
+      left: 64.5%;
+  }
+  .abajo {
+    padding: 10px;
+    gap: 15px;
+  }
+
+  .amigos, .elo, .historial {
+    padding: 15px 10px;
+  }
+
+  .card {
+    max-width: 280px;
+  }
+
+  .if img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .dd h1 {
+    font-size: 1.2rem;
+  }
+
+  .dd h2 {
+    font-size: 1rem;
+  }
+
+  .foto-elo {
+    width: 100px;
+    height: 150px;
+  }
+
+  .puntos, .rango {
+    margin: 10px auto;
+    font-size: 0.9rem;
+  }
+}
+@media (max-width: 486px) {
+  .foto h1{
+      font-size:25px ;
+  }
+
+  .cerrar {
+      bottom: 10px;
+      left: 70%;
+    }
+    
+    .cerrar p {
+      padding: 8px 20px;
+      font-size: 14px;
+    }
+
+  /* Sección de amigos */
+  .amigos {
+    width: 100%;
+    max-width: 340px;
+    padding: 10px;
+  }
+
+  /* Cards de amigos */
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto 15px;
+    grid-template-columns: 1fr; /* Cambia a una sola columna */
+    text-align: center;
+  }
+
+  .if {
+    padding: 10px;
+  }
+
+  .if img {
+    width: 70px;
+    height: 70px;
+  }
+
+  .dd {
+    padding: 10px;
+    gap: 5px;
+  }
+
+  .dd h1 {
+    font-size: 1.1rem;
+    margin: 5px auto;
+  }
+
+  .dd h2 {
+    font-size: 0.9rem;
+    margin: 5px auto;
+  }
+
+  /* Tabla */
+  .table-container {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto;
+    padding: 0 5px;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    min-width: 300px;
+  }
+
+  th, td {
+    padding: 8px 5px;
+    font-size: 0.8rem;
+    text-align: center;
+  }
+
+  /* Sección ELO */
+  .elo {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centra horizontalmente */
+      justify-content: center; /* Centra verticalmente */
+      padding: 15px 0;
+      text-align: center; /* Centra el texto */
+    }
+  
+    /* Contenedor de la imagen */
+    .foto-elo {
+      width: 120px; /* Tamaño adecuado para móvil */
+      height: 180px;
+      margin: 0 auto; /* Centrado horizontal */
+      display: block; /* Asegura que el margin auto funcione */
+    }
+  
+    /* Texto debajo de la imagen */
+    .puntos, .rango {
+      width: 100%;
+      text-align: center;
+      margin: 10px 0;
+    }
+}
+@media (max-width: 375px) {
+  /* Contenedor principal */
+  .abajo {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrado horizontal */
+    justify-content: center; /* Centrado vertical */
+    padding: 10px;
+    width: 100%;
+    gap: 15px;
+  }
+
+  /* Sección de amigos */
+  .amigos {
+    width: 100%;
+    max-width: 340px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Cards de amigos */
+  .card {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    grid-template-columns: 1fr; /* Una sola columna */
+    text-align: center;
+    justify-items: center;
+  }
+
+  .if, .dd {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .if img {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* Sección ELO */
+  .elo {
+    width: 100%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px 0;
+  }
+
+  .foto-elo {
+    width: 100px;
+    height: 150px;
+    margin: 0 auto;
+  }
+
+  .puntos, .rango {
+    text-align: center;
+    width: 100%;
+  }
+
+  /* Sección Historial */
+  .historial {
+    width: 100%;
+    max-width: 340px;
+    padding: 10px;
+  }
+
+  .table-container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 5px;
+  }
+
+  table {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  th, td {
+    padding: 8px 5px;
+    text-align: center;
+  }
+}
