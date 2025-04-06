@@ -3,12 +3,14 @@
     padding: 0;
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
+    color: white;
 }
 
 html, body{
     width: 100%;
     height: 100%;
-    background: url("/images/php6wV0bn.png") ;
+    background: linear-gradient(to bottom, rgba(15, 50, 40, 0.95), rgba(30, 70, 50, 0.8), rgba(100, 80, 20, 0.3));
+    background-attachment: fixed; /* ¡Clave! Fija el gradiente al viewport */
 }
 
 
@@ -39,6 +41,7 @@ html, body{
     align-items: center;
     justify-content: space-between;
     padding-bottom: 20px;
+    position: relative; /* Añadido para contexto de posicionamiento */
 }
 
 .foto {
@@ -69,7 +72,6 @@ html, body{
 
 .foto h1 {
     font-size: 50px;
-    color: black;
     position: absolute;
     bottom: 10px; /* Ajusta la distancia desde la parte inferior */
     left: 50%;
@@ -103,7 +105,7 @@ a{
 
 .opciones li {
     font-size: 30px;
-    color: black;
+
     font-weight: bold;
     padding: 10px 0;
     position: relative;
@@ -117,6 +119,11 @@ a{
     cursor: pointer;
 }
 
+.cerrar {
+    text-align: center;
+    font-size: 16px;
+    padding-bottom: 10px;
+}
 .cerrar p {
     font-size: 20px;
     transition: background-color 0.3s, color 0.3s;
@@ -128,12 +135,6 @@ a{
     background-color: rgba(255, 0, 0, 0.2);
     color: red;
     cursor: pointer;
-}
-
-.cerrar {
-    text-align: center;
-    font-size: 16px;
-    padding-bottom: 10px;
 }
 
 .derecha{
@@ -255,8 +256,8 @@ a{
     grid-template-rows: 1fr 3fr 1fr;
     align-items: center;
     justify-content: center;
-    border-right: solid;
-    border-left: solid;
+    border-right: 1px solid rgba(255,255,255,0.2);
+    border-left: 1px solid rgba(255,255,255,0.2);
 }
 
 .puntos{
@@ -330,126 +331,406 @@ input[type="radio"] {
     display: flex;
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1700px) {
     .contenedor {
-        grid-template-columns: 1fr; /* Columnas a una sola */
-        grid-template-rows: auto auto;
-    }
-
-    .izquierda {
-        padding: 10px;
+        display: flex;
+        flex-direction: column;
         height: auto;
     }
-
-    .derecha {
-        padding: 10px;
-        height: auto;
+    
+    .izquierda, .derecha {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
     }
 
+    .cerrar {
+        padding: 10px 0;
+      }
+      
+      .cerrar p {
+        font-size: 16px;
+        padding: 6px 12px;
+      }
+    
+    /* Ajustes para el panel izquierdo */
+    .datos {
+        flex-direction: row; /* Cambia a disposición horizontal */
+        height: 200px;
+        padding-bottom: 0;
+    }
+    
+    .foto {
+        width: 200px;
+        height: 100%;
+        border-radius: 10px 0 0 10px;
+    }
+    
+    .foto h1 {
+        font-size: 30px;
+        bottom: 5px;
+    }
+    
+    .opciones {
+        justify-content: space-around;
+    }
+    
+    .opciones ul {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 30px;
+    }
+    
+    .opciones li {
+        font-size: 20px;
+        padding: 5px 15px;
+    }
+    
+    /* Ajustes para el panel derecho */
     .arriba {
         height: auto;
-    }
-
-    .abajo {
-        height: auto;
-        grid-template-columns: 1fr 1fr;
-        margin-top: 20px;
-    }
-
-    .card {
-        width: 90%;
-        height: auto;
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto;
-    }
-
-    .if img {
-        width: 80px;
-        height: 80px;
-    }
-
-    .dd {
         padding: 20px;
-        gap: 10px;
     }
-
+    
+    .caja {
+        height: 40px;
+        font-size: 30px;
+    }
+    
     .fila-tercera {
         flex-direction: column;
     }
-
+    
     .mail, .contraseña {
         width: 100%;
     }
+    
+    /* Ajustes para la sección de abajo */
+    .abajo {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 20px;
+        padding: 20px;
+    }
+    
+    .amigos, .elo, .historial {
+        padding: 20px;
+    }
+    
+    .elo {
+        grid-template-rows: auto auto auto;
+        border-right: none;
+        border-left: none;
+        border-top: 1px solid rgba(255,255,255,0.2);
+        border-bottom: 1px solid rgba(255,255,255,0.2);
+        padding: 20px 0;
+    }
 }
+/* Primera adaptación a partir de 510px */
+@media (max-width: 768px) {
 
-/* Celulares y pantallas pequeñas (menos de 768px) */
-@media screen and (max-width: 768px) {
     .opciones ul {
-        gap: 15px;
+        display: block;
+        gap: 10px 30px;
     }
-
-    .opciones li {
-        font-size: 20px;
-    }
-
-    .foto h1 {
-        font-size: 30px;
-    }
-
-    .caja {
-        font-size: 24px;
+    .cerrar {
+        position: fixed;
+        bottom: 15px;
+        left: 65%;
+        transform: translateX(-50%);
+        width: auto;
+        max-width: 90%;
+        padding: 0;
+        background: transparent;
+        z-index: 1000;
+      }
+    
+      .cerrar p {
+        color: black;
+        padding: 10px 25px;
+        font-size: 15px;
+        white-space: nowrap;
     }
 
     .abajo {
-        grid-template-columns: 1fr;
+      grid-template-columns: 1fr; /* Cambia a una sola columna */
+      gap: 20px;
+      padding: 20px;
     }
-
-    .foto-elo {
-        width: 100%;
-        height: auto;
+  
+    .amigos, .elo, .historial {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
     }
-
-    .table-container {
-        margin-left: 0;
-        padding: 10px;
-    }
-
+  
     .card {
-        width: 100%;
+      width: 100%;
+      max-width: 350px;
     }
-
-    .dd h1, .dd h2 {
-        font-size: 18px;
+  
+    .foto-elo {
+      width: 150px;
+      height: 225px;
     }
+  }
+  /* Ajustes para pantallas entre 510px y 650px */
+@media (max-width: 650px) {
 
-    .elo {
-        grid-template-rows: auto;
-        border: none;
+    .cerrar{
+        left: 62%;
     }
-}
-
-/* Pequeños ajustes para pantallas muy pequeñas (< 480px) */
-@media screen and (max-width: 480px) {
-    .caja {
-        font-size: 20px;
+    .abajo {
+      padding: 15px;
     }
-
+  
+    .card {
+      grid-template-columns: 1fr;
+      height: auto;
+      text-align: center;
+    }
+  
+    .if {
+      padding: 15px;
+    }
+  
     .dd {
-        padding: 15px;
+      padding: 15px;
+      gap: 10px;
     }
-
-    .arriba {
-        padding: 20px;
+  
+    .foto-elo {
+      width: 120px;
+      height: 180px;
     }
+  }
+  /* Ajustes finos para pantallas menores a 510px */
+@media (max-width: 510px) {
 
-    .foto h1 {
-        font-size: 24px;
+    .cerrar{
+        left: 64.5%;
     }
-
-    .opciones li {
-        font-size: 18px;
+    .abajo {
+      padding: 10px;
+      gap: 15px;
+    }
+  
+    .amigos, .elo, .historial {
+      padding: 15px 10px;
+    }
+  
+    .card {
+      max-width: 280px;
+    }
+  
+    .if img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    .dd h1 {
+      font-size: 1.2rem;
+    }
+  
+    .dd h2 {
+      font-size: 1rem;
+    }
+  
+    .foto-elo {
+      width: 100px;
+      height: 150px;
+    }
+  
+    .puntos, .rango {
+      margin: 10px auto;
+      font-size: 0.9rem;
     }
 }
+@media (max-width: 486px) {
+    .foto h1{
+        font-size:25px ;
+    }
 
-
-
+    .cerrar {
+        bottom: 10px;
+        left: 70%;
+      }
+      
+      .cerrar p {
+        padding: 8px 20px;
+        font-size: 14px;
+      }
+  
+    /* Sección de amigos */
+    .amigos {
+      width: 100%;
+      max-width: 340px;
+      padding: 10px;
+    }
+  
+    /* Cards de amigos */
+    .card {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto 15px;
+      grid-template-columns: 1fr; /* Cambia a una sola columna */
+      text-align: center;
+    }
+  
+    .if {
+      padding: 10px;
+    }
+  
+    .if img {
+      width: 70px;
+      height: 70px;
+    }
+  
+    .dd {
+      padding: 10px;
+      gap: 5px;
+    }
+  
+    .dd h1 {
+      font-size: 1.1rem;
+      margin: 5px auto;
+    }
+  
+    .dd h2 {
+      font-size: 0.9rem;
+      margin: 5px auto;
+    }
+  
+    /* Tabla */
+    .table-container {
+      width: 100%;
+      max-width: 340px;
+      margin: 0 auto;
+      padding: 0 5px;
+      overflow-x: auto;
+    }
+  
+    table {
+      width: 100%;
+      min-width: 300px;
+    }
+  
+    th, td {
+      padding: 8px 5px;
+      font-size: 0.8rem;
+      text-align: center;
+    }
+  
+    /* Sección ELO */
+    .elo {
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Centra horizontalmente */
+        justify-content: center; /* Centra verticalmente */
+        padding: 15px 0;
+        text-align: center; /* Centra el texto */
+      }
+    
+      /* Contenedor de la imagen */
+      .foto-elo {
+        width: 120px; /* Tamaño adecuado para móvil */
+        height: 180px;
+        margin: 0 auto; /* Centrado horizontal */
+        display: block; /* Asegura que el margin auto funcione */
+      }
+    
+      /* Texto debajo de la imagen */
+      .puntos, .rango {
+        width: 100%;
+        text-align: center;
+        margin: 10px 0;
+      }
+  }
+  @media (max-width: 375px) {
+    /* Contenedor principal */
+    .abajo {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centrado horizontal */
+      justify-content: center; /* Centrado vertical */
+      padding: 10px;
+      width: 100%;
+      gap: 15px;
+    }
+  
+    /* Sección de amigos */
+    .amigos {
+      width: 100%;
+      max-width: 340px;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    /* Cards de amigos */
+    .card {
+      width: 100%;
+      max-width: 300px;
+      margin: 0 auto;
+      grid-template-columns: 1fr; /* Una sola columna */
+      text-align: center;
+      justify-items: center;
+    }
+  
+    .if, .dd {
+      padding: 10px;
+      width: 100%;
+    }
+  
+    .if img {
+      width: 80px;
+      height: 80px;
+    }
+  
+    /* Sección ELO */
+    .elo {
+      width: 100%;
+      max-width: 300px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 15px 0;
+    }
+  
+    .foto-elo {
+      width: 100px;
+      height: 150px;
+      margin: 0 auto;
+    }
+  
+    .puntos, .rango {
+      text-align: center;
+      width: 100%;
+    }
+  
+    /* Sección Historial */
+    .historial {
+      width: 100%;
+      max-width: 340px;
+      padding: 10px;
+    }
+  
+    .table-container {
+      width: 100%;
+      margin: 0 auto;
+      padding: 0 5px;
+    }
+  
+    table {
+      width: 100%;
+      margin: 0 auto;
+    }
+  
+    th, td {
+      padding: 8px 5px;
+      text-align: center;
+    }
+  }

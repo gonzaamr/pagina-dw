@@ -9,33 +9,41 @@ input{
     display: none;
 }
 
+html, body {
+    width: 100%;
+    overflow-x: hidden; /* Previene scroll horizontal */
+    max-width: 100vw; /* Limita el ancho máximo */
+}
+
 body{
     display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("/images/php6wV0bn.png") no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: linear-gradient(to bottom, rgba(15, 50, 40, 0.95), rgba(30, 70, 50, 0.8), rgba(100, 80, 20, 0.3));
+    background-attachment: fixed; /* ¡Clave! Fija el gradiente al viewport */
 }
-
 .titulo {
     position: absolute;
+    z-index: 9999;  
     top: 10%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
     font-size: 2rem;
-    color: white;
+    color: white;  
 }
 
 .contenedor{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 20px; /* Espacio entre botones */
     justify-content: center;
     align-items: center;
-    width: 815px;
+    width: 100%;
+    max-width: 815px;
     background: transparent;
     border: 2px solid rgba(255, 255, 255, .2);
     backdrop-filter: blur(20px);
@@ -45,11 +53,12 @@ body{
     padding: 30px 40px;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    z-index: 1;
     position: absolute;
-    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
+    top: 20%; /* o lo que estimes para dejar espacio para el título */
+    transform: translateX(-50%);
+    margin: 0 auto;
 }
 
 .boton{
@@ -220,39 +229,28 @@ tr:hover {
     height: auto;
     
 }
-.contendor-estadisticas{
-    grid-template-columns: repeat(3, 1fr);
-} 
-
-.est{
-    display: inline-block;
-    padding: 10px;
-    background: transparent;
-    margin: 20px;
-
-    text-decoration: none;
-    color: white;
-    width: 150px;
-    height: 150px;
-    border-style: solid; 
-}
 
 .contenedor-estadisticas {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* 3 columnas */
-    gap: 15px; /* Espacio entre celdas */
+    gap: 10px; /* Espacio entre celdas */
     margin-top: 20px;
 }
-
-.est {
+.est{
+    display: flex;
+    padding: 10px;
+    background: transparent;
+    margin: 0 20px 10px 20px;
+    text-decoration: none;
+    color: white;
+    width: auto;
+    height: 150px;
+    border-style: solid; 
     background: #f0f0f080;
     border-radius: 10px;
-
-    display: flex;
     flex-direction: column;
     align-items: center; /* Centra horizontalmente */
-    justify-content: center; /* Centra verticalmente */
-    min-height: 120px; /* Altura mínima para uniformidad */
+    justify-content: center; 
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
@@ -262,7 +260,7 @@ tr:hover {
     color: #555;
 }
 
-.est big {
+.est h1 {
     font-size: 1.8rem;
     font-weight: bold;
     color: #333;
@@ -368,29 +366,7 @@ tr:hover {
     visibility: visible;   
 } 
 
-/* ===========================
-   MEDIA QUERIES RESPONSIVE
-   =========================== */
-   @media (max-width: 1024px) {
-    .contenedor {
-        grid-template-columns: repeat(2, 1fr);
-        width: 90%;
-    }
-
-    .detalle, .historial, .estadisticas {
-        width: 90%;
-    }
-
-    .contenedor-estadisticas {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .card {
-        min-width: 45%;
-    }
-}
-
-@media (max-width: 768px) {
+@media (max-width: 910px) {
     .contenedor {
         grid-template-columns: 1fr;
         width: 90%;
@@ -402,6 +378,7 @@ tr:hover {
 
     .contenedor-estadisticas {
         grid-template-columns: 1fr;
+        overflow-y: hidden;
     }
 
     .titulo {
@@ -409,10 +386,16 @@ tr:hover {
         top: 5%;
     }
 
-    .boton {
+    .boton{
         width: 100%;
         height: 150px;
         margin: 10px 0;
+    }
+    .est{
+        width: 90%;
+        height: 150px;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     .box .item {
@@ -434,19 +417,82 @@ tr:hover {
         height: 40px;
     }
 
-    th, td {
-        font-size: small;
-        padding: 10px;
+    .table-container {
+        width: 100%;
+        margin-left: 0;
+        padding: 0 15px;
+        box-sizing: border-box;
+        overflow-x: auto; /* Permite scroll si la tabla es muy ancha */
+      }
+    
+      /* Ajustes para la tabla */
+      table {
+        width: 100% !important;
+        min-width: 100%;
+        table-layout: auto; /* O 'fixed' si prefieres */
+      }
+    
+      /* Ajuste de celdas */
+      th, td {
+        padding: 10px 8px; /* Espaciado más compacto */
+        white-space: nowrap; /* Evita saltos de línea */
+        font-size: 0.9rem; /* Tamaño de fuente ligeramente menor */
+      }
+    
+      /* Botones dentro de la tabla */
+      .jugar {
+        width: auto;
+        min-width: 80px;
+        padding: 0 10px;
+        font-size: 0.85rem;
+      }
     }
-}
 
 @media (max-width: 480px) {
+    
+    body {
+        position: relative; /* Contiene elementos absolutos */
+        overflow-x: hidden; /* Doble seguridad */
+    }
+    
+    .contenedor {
+        width: 100vw; /* Ocupa exactamente el ancho de la pantalla */
+        margin: 0;
+        padding: 20px 15px; /* Padding controlado */
+    }
+
+    .contenedor {
+        grid-template-columns: 1fr;
+        justify-content: center;
+        align-items: center;
+        width: 100%; /* Cambia de 360px a 100% */
+        padding: 20px 10px; /* Reduce el padding para más espacio */
+        max-width: 390px; 
+    }
+
+    .contenedor-estadisticas {
+        grid-template-columns: 1fr;
+    }
+
     .titulo {
         font-size: 1.2rem;
     }
 
     .card h1 {
         font-size: 1rem;
+    }
+    .boton {
+        width: 100%; /* Ocupa todo el ancho disponible */
+        margin: 10px 0; /* Reduce el margen */
+        height: auto; /* Altura flexible */
+        min-height: 120px; /* Altura mínima */
+    }
+
+    .est{
+        width: 90%;
+        height: 120px;
+        margin: 0 auto;
+        margin-bottom: 10px;
     }
 
     .est h3 {
@@ -465,4 +511,29 @@ tr:hover {
     .boton {
         height: 120px;
     }
-}
+
+        /* Personalización para Chrome, Edge y Safari */
+    .table-container::-webkit-scrollbar {
+        height: 6px; /* Altura de la barra (horizontal) */
+    }
+
+    .table-container::-webkit-scrollbar-track {
+        background: transparent; /* Fondo transparente */
+        margin: 0 20px; /* Margen a los lados (opcional) */
+    }
+
+    .table-container::-webkit-scrollbar-thumb {
+        background-color: #888; /* Color de la barra */
+        border-radius: 3px; /* Bordes redondeados */
+    }
+
+    .table-container::-webkit-scrollbar-thumb:hover {
+        background-color: #555; /* Color al pasar el mouse */
+    }
+
+} 
+
+
+
+
+

@@ -10,12 +10,20 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    gap: 100px;
     min-height: 100vh;
-    background: url("/images/php6wV0bn.png") no-repeat;
+    background: linear-gradient(to bottom, rgba(15, 50, 40, 0.95), rgba(30, 70, 50, 0.8), rgba(100, 80, 20, 0.3));
+    background-attachment: fixed; /* ¡Clave! Fija el gradiente al viewport */
     background-size: cover;
     background-position: center;
 }
 
+a{
+    text-decoration: none; /* Elimina el subrayado */
+    color: inherit;       /* Hereda el color del texto del padre */
+    cursor: default;
+    cursor: pointer;
+}
 
 .contenedor{
     width: 420px;
@@ -26,6 +34,58 @@ body{
     color:#fff;
     border-radius: 10px;
     padding: 30px 40px;
+}
+
+.a {
+    width: 650px;
+    height: 650px;
+    position: relative; /* ¡clave para posicionar hijos con position: absolute! */
+}
+
+
+
+.quienes {
+    position: absolute;
+    bottom: 20px; /* Puedes ajustar este valor */
+    left: 30px;   /* O usa right: 30px si lo quieres al otro lado */
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+.titulo a {
+    margin-top: auto;
+    align-self: flex-start; /* opcional: si quieres que esté alineado a la izquierda */
+    color: #fff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.titulo a:hover {
+    text-decoration: underline;
+}
+
+
+
+.beneficio {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 50px 0;
+    padding: 0 10px;
+    color: white;
+}
+
+.beneficio p {
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.beneficio img {
+    width: 125px;
+    height: 125px;
+    object-fit: contain;
 }
 
 .contenedor h1{
@@ -116,6 +176,39 @@ body{
     text-decoration: underline;
 }
 
-  
+@media (max-width: 1200px){
+    body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
 
-  
+    .b{
+        margin: 30px;
+    }
+} 
+
+@media (max-width: 670px){
+    .a, .b{
+        width: 90%;
+    }
+}
+
+@media(max-width: 420px){
+    .a{
+        height: auto;
+    }
+    .beneficio{
+        flex-direction: column;
+    }
+
+    .contenedor h1 {
+        order: 2; /* va después */
+      }
+      
+      .contenedor img {
+        order: 1; /* va primero */
+      }
+}
