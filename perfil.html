@@ -4,12 +4,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Perfil</title>
-        <link rel="stylesheet" href="styles-perfil.css"> 
+        <link rel="stylesheet" href="styles.css"> 
     </head>
-    <body>
-        <div class="contenedor">
+    <body class="perfil">
+        <div class="contenedor_perfil">
             <div class="izquierda">
-                <div class="datos">
+                <div class="datos_perfil">
                     <div class="foto">
                         <input type="file" id="fileInput" accept="image/*">
                         <h1>Lokotron</h1>
@@ -35,7 +35,7 @@
                     <input type="radio" name="vista" id="edicion">
                     <div class="arriba modo-visualizacion">
                         <div class="caja nickname">El lokotron del ajedrez 99</div> 
-                        <div class="caja nombre">Lokotron Jose Peréz Rammirez</div> 
+                        <div class="caja nombre_perfil">Lokotron Jose Peréz Rammirez</div> 
                         <div class="fila-tercera"> 
                             <div class="caja mail">lokotron@gmail.com</div>
                             <div class="caja contraseña">*********</div>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="arriba modo-edicion">
                         <input type="text" class="caja nickname" placeholder="El lokotron del ajedrez 99">
-                        <input type="text" class="caja nombre" placeholder="Lokotron Jose Peréz Rammirez">
+                        <input type="text" class="caja nombre_perfil" placeholder="Lokotron Jose Peréz Rammirez">
                         <div class="fila-tercera">
                             <input type="email" class="caja mail" placeholder="lokotron@gmail.com">
                             <input type="password" class="caja contraseña" placeholder="*********">
@@ -55,7 +55,7 @@
                 <div class="abajo">
                     <div class="amigos">
                         <h1>Amigos</h1>
-                        <div class="card">
+                        <div class="card_perfil">
                             <div class="if">
                                 <img src="/images/foto-perfil.webp" class="itemdetalle" alt="foto-perfil">
                             </div>
@@ -64,7 +64,7 @@
                                 <h2>1563 pts</h2>
                             </div>
                         </div>
-                        <div class="card">
+                        <div class="card_perfil">
                             <div class="if">
                                 <img src="/images/foto-perfil.webp" class="itemdetalle" alt="foto-perfil">
                             </div>
@@ -85,36 +85,36 @@
                             <h1>Peón</h1>
                         </div>
                     </div>
-                    <div class="historial">
-                        <div class="table-container">
-                            <table>
+                    <div class="historial_perfil">
+                        <div class="table-container tp">
+                            <table class="tp"> 
                                 <thead> 
-                                    <tr>
-                                        <th>Contrincante</th>
-                                        <th>Resultado</th>
-                                        <th>Puntaje</th>
+                                    <tr class="tp">
+                                        <th class="tp">Contrincante</th>
+                                        <th class="tp">Resultado</th>
+                                        <th class="tp">Puntaje</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td>Gonzalo</td>
-                                        <td>Derrota</td>
-                                        <td>0-1</td>
+                                    <tr class="tp">
+                                        <td class="tp">Gonzalo</td>
+                                        <td class="tp">Derrota</td>
+                                        <td class="tp">0-1</td>
                                     </tr>
-                                    <tr>
-                                        <td>Alonso</td>
-                                        <td>Victoria</td>
-                                        <td>1-0</td>
+                                    <tr class="tp">
+                                        <td class="tp">Alonso</td>
+                                        <td class="tp">Victoria</td>
+                                        <td class="tp">1-0</td>
                                     </tr>
-                                    <tr>
-                                        <td>Nutrin</td>
-                                        <td>Derrota</td>
-                                        <td>0-1</td>
+                                    <tr class="tp">
+                                        <td class="tp">Nutrin</td>
+                                        <td class="tp">Derrota</td>
+                                        <td class="tp">0-1</td>
                                     </tr>
-                                    <tr>
-                                        <td>Nutrion</td>
-                                        <td>Empate</td>
-                                        <td>1/2 - 1/2</td>
+                                    <tr class="tp">
+                                        <td class="tp">Nutrion</td>
+                                        <td class="tp">Empate</td>
+                                        <td class="tp">1/2 - 1/2</td>
                                     </tr>
                                 </tbody>
                             </table>
